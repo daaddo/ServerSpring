@@ -16,7 +16,7 @@ public class RedisConfig {
     @Bean
     public JedisConnectionFactory connectionFactory() {
         RedisStandaloneConfiguration configuration = new RedisStandaloneConfiguration();
-        configuration.setHostName("host.docker.internal");
+        configuration.setHostName("152.228.218.211");
         configuration.setPort(200);
         return new JedisConnectionFactory(configuration);
     }
