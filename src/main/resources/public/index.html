@@ -1,0 +1,242 @@
+<html>
+<head>
+    <title>Gestione Aule</title>
+</head>
+<h1>Gestione Aule</h1>
+<style type="text/css">
+    h2 {
+        margin: 10px 0px 20px 10px !important;
+        padding: 0px !important;
+    }
+
+    .card {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0px;
+        height: 200px;
+        border-radius: 5px;
+        margin: 10px;
+    }
+
+    .cardLab {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 0px;
+        height: 300px;
+        border-radius: 5px;
+        margin: 10px;
+    }
+
+    .left-section {
+        width: 30%;
+        /* background-image: url('https://firebasestorage.googleapis.com/v0/b/aule-manager.appspot.com/o/Screenshot%202024-05-27%20165958.png?alt=media&token=5d35bd8d-f509-4d40-89ea-5ac53598a242');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center; */
+        border-radius: 8px 0px 0px 8px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .left-section img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 8px 0px 0px 8px;
+    }
+
+
+    .right-section {
+        width: 70%;
+        background-color: rgb(213, 215, 222);
+        border-radius: 0px 8px 8px 0px;
+        padding: 10px;
+    }
+
+    .right-section p {
+        padding: 0;
+        margin: 12px;
+    }
+
+    .buttons-inline {
+        display: flex;
+        flex-direction: row;
+        justify-content: left;
+        margin-left: 2px;
+    }
+
+    .buttons-inline p {
+        padding: 0px;
+        margin: 0px 0px 0px 10px;
+    }
+
+    .buttons-inline button {
+        padding: 5px 10px;
+        border-radius: 5px;
+        background-color: rgb(47, 77, 125);
+        color: white;
+        border: none;
+        cursor: pointer;
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    .buttons-inline button:hover {
+        background-color: rgb(47, 77, 125, 0.8);
+    }
+
+    .button-container {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0;
+        padding: 0;
+        margin-bottom: 10px;
+    }
+
+    .button-item4 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        font-size: 13px;
+        padding: 4px 10px;
+        margin: 0px 10px 10px 5px;
+        background-color: #4b4f5c;
+        color: white;
+        border-radius: 60px;
+    }
+
+    @media screen and (max-width: 852px) {
+        .card {
+            flex-direction: column;
+            height: auto;
+        }
+
+        .cardLab {
+            flex-direction: column;
+            height: auto;
+        }
+
+        .left-section img {
+            border-radius: 8px 8px 0px 0px;
+        }
+
+        .left-section {
+            width: 100%;
+            border-radius: 8px 8px 0px 0px;
+        }
+
+        .right-section {
+            width: 100%;
+            border-radius: 0px 0px 8px 8px;
+            padding: 0px;
+        }
+
+        .right-section p {
+            padding: 0;
+            margin: 12px;
+        }
+
+        .buttons-inline {
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            margin-left: 2px;
+        }
+    }
+</style>
+<div class="card">
+    <div class="left-section"><img alt=""
+                                   src="https://firebasestorage.googleapis.com/v0/b/aule-manager.appspot.com/o/Screenshot%202024-05-27%20165958.png?alt=media&amp;token=5d35bd8d-f509-4d40-89ea-5ac53598a242">
+    </div>
+    <div class="right-section">
+        <h2>Aula Piaget</h2>
+        <hr>
+        <p><b>Posti a sedere: </b>40 + 3 (tavolo centrale)</p>
+        <p><b>Dotazioni:</b> 1 Tavolo grande, 1 Video proiettore</p>
+        <div class="buttons-inline">
+            <p><b>Disponibilità: </b> <a href="http://tinyurl.com/SalaPiaget" target="_blank">
+                <button>Verifica la disponibilità</button>
+            </a></p>
+            <p><b>Prenotazioni: </b> <a href="https://tinyurl.com/form4Piaget" target="_blank">
+                <button>Prenota</button>
+            </a></p>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="left-section"><img alt=""
+                                   src="https://firebasestorage.googleapis.com/v0/b/aule-manager.appspot.com/o/rumelhart.jpeg?alt=media&amp;token=6dbb5567-6de0-45d9-9bb9-84f18035c911">
+    </div>
+    <div class="right-section">
+        <h2>Sala Rumelhart</h2>
+        <hr>
+        <p><b>Posti a sedere: </b>16</p>
+        <p><b>Dotazioni:</b> Tavolo da riunone</p>
+        <div class="buttons-inline">
+            <p><b>Disponibilità: </b> <a href="http://tinyurl.com/rumelhart" target="_blank">
+                <button>Verifica la disponibilità</button>
+            </a></p>
+            <p><b>Prenotazioni: </b> <a href="https://tinyurl.com/form4Rumelhart" target="_blank">
+                <button>Prenota</button>
+            </a></p>
+        </div>
+    </div>
+</div>
+<div class="card">
+    <div class="left-section"><img alt=""
+                                   src="https://firebasestorage.googleapis.com/v0/b/aule-manager.appspot.com/o/montessori.jpeg?alt=media&amp;token=6d0b7c03-80d1-455f-9a64-5eaf7d311b69">
+    </div>
+    <div class="right-section">
+        <h2>Sala Montessori</h2>
+        <hr>
+        <p><b>Posti a sedere: </b>14</p>
+        <p><b>Dotazioni:</b> Tavolo da riunone, ampio schermo collegabile a labtop</p>
+        <div class="buttons-inline">
+            <p><b>Disponibilità: </b> <a href="http://tinyurl.com/aulaMontessori" target="_blank">
+                <button>Verifica la disponibilità</button>
+            </a></p>
+            <p><b>Prenotazioni: </b> <a href="https://tinyurl.com/form4Montessori" target="_blank">
+                <button>Prenota</button>
+            </a></p>
+        </div>
+    </div>
+</div>
+<div class="cardLab">
+    <div class="left-section"><img alt=""
+                                   src="https://firebasestorage.googleapis.com/v0/b/aule-manager.appspot.com/o/doctors.png?alt=media&token=58dd6efd-ce0f-4a2f-9c70-f0999d76a881">
+    </div>
+    <div class="right-section">
+        <h2>Laboratori</h2>
+        <hr>
+        <div class="button-container">
+            <div class="button-item4">Psicologia Sperimentale - Stanza 4V</div>
+            <div class="button-item4">Fisiologia Sperimentale - Stanza 4T</div>
+            <div class="button-item4">Robotica 1 - Stanza 4B</div>
+            <div class="button-item4">Robotica 2 - Stanza 4C</div>
+            <div class="button-item4">Motion Tracking Arena - Stanza 4D</div>
+        </div>
+        <div class="buttons-inline">
+            <p><b>Disponibilità: </b> <a href="http://tinyurl.com/istcLabs" target="_blank">
+                <button>Verifica la disponibilità</button>
+            </a></p>
+            <p><b>Prenotazioni: </b> <a href="https://tinyurl.com/form4Labs" target="_blank">
+                <button>Prenota</button>
+            </a></p>
+        </div>
+        <p><b>Nota:</b> il calendario unifica le prenotazioni dei 5 laboratori. Ogni prenotazione inizia con il tag del
+            laboratorio, es. "[4T] Mario Rossi". Prenotazioni multiple possono coesistere nella stessa fascia oraria se
+            di laboratori differenti.</p>
+    </div>
+</div>
+<p>&nbsp;</p>
+<p>Prima della prenotazione dei laboratori, si raccomanda di consultare il&nbsp;<u><a
+        href="https://www.istc.cnr.it/sites/default/files/regolamento_laboratori_e_richiesta_accesso_v4_0.pdf"
+        target="_blank">Regolamento</a></u>.</p>
+<address>Per ulteriori informazioni &nbsp;contattare il referente dei laboratori dott. Luca Coraci (<a
+        href="mailto:luca.coraci@istc.cnr.it">luca.coraci@istc.cnr.it</a>)
+</address>
+</html>
