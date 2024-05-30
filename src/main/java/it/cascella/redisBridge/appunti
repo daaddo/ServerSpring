@@ -1,0 +1,15 @@
+@RequestMapping -> stabilisce l' entry point della classe ad esempio se ho @RequestMapping("/simple) si troverà su
+http://localhost:8080/simple e tutti i succesivi metodi
+che saranno implementati partiranno da quella radice
+
+@RestController -> è un'annotazione che combina @Controller e @ResponseBody, che sono entrambi annotazioni di Spring.
+La prima è utilizzata per definire un controller e la seconda è utilizzata per indicare che il valore restituito
+da un metodo deve essere legato al corpo della risposta HTTP.
+
+@GetMapping -> è un'annotazione di Spring che fornisce un'abbreviazione per @RequestMapping(method = RequestMethod.GET).
+@Autowired -> è un'annotazione di Spring che può essere applicata a vari elementi, come proprietà, metodi, costruttori e variabili. e
+ci permette di iniettare automaticamente il bean di un'altra classe. se sono presenti più bean che ritornano lo stesso tipo di classe
+si può usare @Qualifier(" nome Metodo") per specificare quale bean si vuole iniettare
+
+@Configuration -> è un'annotazione di Spring che indica che una classe dichiara uno o più metodi @Bean e può essere processata
+dall'applicazione Spring per generare definizioni di bean e richieste di servizio per quei bean all'interno del contesto dell'applicazione.
