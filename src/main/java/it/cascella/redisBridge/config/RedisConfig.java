@@ -13,8 +13,8 @@ public class RedisConfig {
     @Bean
     public JedisConnectionFactory connectionFactory() {
         RedisStandaloneConfiguration configuration = new RedisStandaloneConfiguration();
-        configuration.setHostName("152.228.218.211");
-        configuration.setPort(200);
+        configuration.setHostName("redis");
+        configuration.setPort(6379);
         return new JedisConnectionFactory(configuration);
     }
 }
