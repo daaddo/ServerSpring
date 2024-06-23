@@ -16,7 +16,7 @@ public class WebConfig implements WebMvcConfigurer {
                         .allowedOrigins("*")  // Sostituisci con il dominio che vuoi autorizzare
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
-                        .allowCredentials(true);
+                        .allowCredentials(false);
             }
         };
     }
