@@ -13,7 +13,7 @@ public class RedisController {
     public RedisController(VariableDao variableDao) {
         this.variableDao = variableDao;
     }
-    //ex http://localhost:8080/redis/save/?key=prova&value=prova
+    //ex https://spring.grandeminchia.org/redis/save?key=insomnia&value=prova
     @PostMapping("/save")
     public void save(@RequestParam("key") String key, @RequestParam("value") String value) {
         variableDao.save(key, value);
