@@ -5,6 +5,7 @@ import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public class VariableDao {
@@ -22,9 +23,10 @@ public class VariableDao {
         System.out.println("[DEBUG] get VariableDao: " + key);
         return redisTemplate.opsForValue().get(key);
     }
-    public List<String> get() {
+    public Map<Object,Object> get() {
         System.out.println("[DEBUG] getting all VariableDao: " );
-        return redisTemplate.opsForValue().multiGet(redisTemplate.keys("*"));
+        //mappa chiave valore
+        return redisTemplate.opsForValue().getOperations().boundHashOps("key").entries();
     }
     public void delete(String key) {
         System.out.println("[DEBUG] del VariableDao: " + key);

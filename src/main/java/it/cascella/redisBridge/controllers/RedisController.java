@@ -5,6 +5,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/redis")
@@ -25,7 +26,7 @@ public class RedisController {
         return variableDao.get(key);
     }
     @GetMapping("/get")
-    public List<String> get() {
+    public Map<Object,Object> get() {
         return variableDao.get();
     }
     @DeleteMapping("/{key}")
