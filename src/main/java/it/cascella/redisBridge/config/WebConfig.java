@@ -13,7 +13,7 @@ public class WebConfig implements WebMvcConfigurer {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry.addMapping("/**")  // Configura CORS per tutti gli endpoint
-                        .allowedOrigins("*")  // Sostituisci con il dominio che vuoi autorizzare
+                        .allowedOrigins("https://grandeminchia.org")  // Sostituisci con il dominio che vuoi autorizzare
                         .allowedMethods("GET", "POST", "PUT", "DELETE", "OPTIONS")
                         .allowedHeaders("*")
                         .allowCredentials(false);

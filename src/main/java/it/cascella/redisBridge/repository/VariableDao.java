@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public class VariableDao {
     private final RedisTemplate<String, String> redisTemplate;
@@ -19,6 +21,10 @@ public class VariableDao {
     public String get(String key) {
         System.out.println("[DEBUG] get VariableDao: " + key);
         return redisTemplate.opsForValue().get(key);
+    }
+    public List<String> get() {
+        System.out.println("[DEBUG] getting all VariableDao: " );
+        return redisTemplate.opsForValue().multiGet(redisTemplate.keys("*"));
     }
     public void delete(String key) {
         System.out.println("[DEBUG] del VariableDao: " + key);

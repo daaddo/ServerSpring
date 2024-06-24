@@ -4,6 +4,8 @@ import it.cascella.redisBridge.repository.VariableDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("/redis")
 public class RedisController {
@@ -22,7 +24,10 @@ public class RedisController {
     public String get(@PathVariable String key) {
         return variableDao.get(key);
     }
-
+    @GetMapping("/get")
+    public List<String> get() {
+        return variableDao.get();
+    }
     @DeleteMapping("/{key}")
     public void delete(@PathVariable String key) {
          variableDao.delete(key);
