@@ -1,11 +1,14 @@
 package it.cascella.redisBridge.repository;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.redis.connection.DataType;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Repository;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 @Repository
 public class VariableDao {
@@ -23,10 +26,33 @@ public class VariableDao {
         System.out.println("[DEBUG] get VariableDao: " + key);
         return redisTemplate.opsForValue().get(key);
     }
-    public Map<Object,Object> get() {
-        System.out.println("[DEBUG] getting all VariableDao: " );
-        //mappa chiave valore
-        Map<Object, Object> entries = redisTemplate.opsForValue().getOperations().boundHashOps("key").entries();
+    public Map<String, Object> get() {
+        System.out.println("[DEBUG] getting all VariableDao: ");
+
+        // Ottieni tutte le chiavi da Redis
+        Set<String> keys = redisTemplate.keys("*");
+
+        Map<String, Object> entries = new HashMap<>();
+        System.out.println("so dentro");
+
+        if (keys != null) {
+            for (String key : keys) {
+                if (redisTemplate.type(key)!= DataType.STRING){
+                    continue;
+                }
+                Object value = redisTemplate.opsForValue().get(key);
+
+                if (value != null) {
+                    entries.put(key, value);
+                    System.out.println("[DEBUG] " + key + " " + value);
+                } else {
+                    System.out.println("[DEBUG] Chiave " + key + " non trovata.");
+                }
+            }
+        } else {
+            System.out.println("[DEBUG] Nessuna chiave trovata.");
+        }
+
         return entries;
     }
     public void delete(String key) {

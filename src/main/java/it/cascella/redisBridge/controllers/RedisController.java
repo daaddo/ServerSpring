@@ -26,7 +26,7 @@ public class RedisController {
         return variableDao.get(key);
     }
     @GetMapping("/get")
-    public Map<Object,Object> get() {
+    public Map<String,Object> get() {
         return variableDao.get();
     }
     @DeleteMapping("/{key}")
