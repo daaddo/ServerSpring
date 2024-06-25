@@ -26,7 +26,8 @@ public class VariableDao {
     public Map<Object,Object> get() {
         System.out.println("[DEBUG] getting all VariableDao: " );
         //mappa chiave valore
-        return redisTemplate.opsForValue().getOperations().boundHashOps("key").entries();
+        Map<Object, Object> entries = redisTemplate.opsForValue().getOperations().boundHashOps("key").entries();
+        return entries;
     }
     public void delete(String key) {
         System.out.println("[DEBUG] del VariableDao: " + key);
