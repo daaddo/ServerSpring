@@ -1,5 +1,7 @@
 package it.cascella.redisBridge.repository;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.DataType;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -22,6 +24,7 @@ public class VariableDao {
         System.out.println("[DEBUG] save VariableDao: " + key + " " + value);
         redisTemplate.opsForValue().set(key, value);
     }
+
     public String get(String key) {
         System.out.println("[DEBUG] get VariableDao: " + key);
         return redisTemplate.opsForValue().get(key);

@@ -1,5 +1,7 @@
 package it.cascella.redisBridge.controllers;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import it.cascella.redisBridge.repository.VariableDao;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -20,6 +22,17 @@ public class RedisController {
     @PostMapping("/save")
     public void save(@RequestParam("key") String key, @RequestParam("value") String value) {
         variableDao.save(key, value);
+    }
+    @PostMapping("/json")
+    public void save(@RequestParam("key")String key , @RequestBody Map<String, String> json) {
+        ObjectMapper objectMapper = new ObjectMapper();
+        String jsonString = null;
+        try {
+            jsonString = objectMapper.writeValueAsString(json);
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
+        variableDao.save(key, jsonString);
     }
     @GetMapping("/{key}")
     public String get(@PathVariable String key) {
