@@ -13,6 +13,6 @@ public class EvenCalculator {
 
     public boolean isEven(int number) {
         System.out.println("EvenCalculator: " + name);
-        return number % 2 == 0;
+        return number % 2 == 1;
     }
 }
