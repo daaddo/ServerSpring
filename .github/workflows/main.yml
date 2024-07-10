@@ -21,8 +21,9 @@ jobs:
 
     - name: Compile and test with Maven
       run: mvn clean install
+
   post-build:
-    runs-on: ubuntu:latest
+    runs-on: ubuntu-latest
     needs: build
 
     steps:
