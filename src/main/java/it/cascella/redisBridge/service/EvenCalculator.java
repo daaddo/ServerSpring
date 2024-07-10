@@ -12,7 +12,7 @@ public class EvenCalculator {
     }
 
     public boolean isEven(int number) {
-        System.out.println("EvenCalculator: " + name);
+        System.out.println("EvenClculator: " + name);
         return number % 2 == 0;
     }
 }
