@@ -23,6 +23,7 @@ jobs:
       run: mvn clean install
 
   docker-build:
+    needs: mvn-build
     runs-on: ubuntu-latest
     steps:
     - name: Set up Docker Build
