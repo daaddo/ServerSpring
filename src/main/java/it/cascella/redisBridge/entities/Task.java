@@ -1,14 +1,18 @@
 package it.cascella.redisBridge.entities;
 
 import jakarta.persistence.*;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
+
+@Entity
+@Data
+@NoArgsConstructor
 public class Task {
     @Id
     private Long id;
 
     private String text;
-
-    private String description;
 
     @Enumerated(EnumType.STRING)
     private Type type;

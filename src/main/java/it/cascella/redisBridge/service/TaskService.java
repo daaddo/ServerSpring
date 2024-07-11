@@ -1,5 +1,7 @@
 package it.cascella.redisBridge.service;
 
+import it.cascella.redisBridge.dto.TaskDto;
+import it.cascella.redisBridge.entities.Task;
 import it.cascella.redisBridge.repository.TaskRepository;
 import it.cascella.redisBridge.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,9 +34,8 @@ public class TaskService {
     public Task updateTask(Long id, Task task){
         Task existingTask = taskRepository.findById(id).orElse(null);
         if(existingTask != null){
-            existingTask.setTitle(task.getTitle());
-            existingTask.setDescription(task.getDescription());
-            existingTask.setStatus(task.getStatus());
+            existingTask.setText(task.getText());
+            existingTask.setType(task.getType());
             return taskRepository.save(existingTask);
         }
         return null;
@@ -46,8 +47,8 @@ public class TaskService {
         return taskRepository.findByUserId(id).stream()
                 .map(task ->new TaskDto(
                         task.getId(),
-                        task.getTitle(),
-                        task.getDescription()))
+                        task.getText(),
+                        task.getType().toString()))
                 .collect(Collectors.toList());
 
     }
