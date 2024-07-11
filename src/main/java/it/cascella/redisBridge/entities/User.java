@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.List;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -20,5 +22,7 @@ public class User {
     @Column(name = "password", nullable = false)
     private String password;
 
+    @OneToMany(mappedBy = "user")
+    private List<Task> tasks;
 
 }
