@@ -50,6 +50,17 @@ public class TaskService {
         return "error";
     }
 
+    public String register(String name, String password){
+        User user = new User();
+        if (userRepository.findByName(name)){
+            return "error";
+        }
+        user.setName(name);
+        user.setPassword(password);
+        userRepository.save(user);
+        return "Registered";
+    }
+
     /*@Transactional*/
     public List<TaskDto> getUserTasks(Long id){
         //getReferenceById(id) è una select con l id

@@ -18,6 +18,12 @@ public class TaskController {
     public String login(@PathVariable String name, @PathVariable String password){
         return taskService.login(name, password);
     }
+
+    @PostMapping("register/{name}/{password}")
+    public String register(@PathVariable String name, @PathVariable String password){
+        return taskService.register(name, password);
+    }
+
     @GetMapping
     public List<Task> getAllTasks(){
         return taskService.getAllTasks();
