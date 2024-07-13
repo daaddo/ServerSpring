@@ -28,4 +28,9 @@ public class TaskController {
     public List<TaskDto> getUserTasks(@PathVariable Long id ){
         return taskService.getUserTasks(id);
     }
+
+    @DeleteMapping("/delete/{id}")
+    public void deleteTask(@PathVariable Long id){
+        taskService.deleteTask(id);
+    }
 }
