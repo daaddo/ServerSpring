@@ -2,6 +2,7 @@ package it.cascella.redisBridge.service;
 
 import it.cascella.redisBridge.dto.TaskDto;
 import it.cascella.redisBridge.entities.Task;
+import it.cascella.redisBridge.entities.User;
 import it.cascella.redisBridge.repository.TaskRepository;
 import it.cascella.redisBridge.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,14 @@ public class TaskService {
             return taskRepository.save(existingTask);
         }
         return null;
+    }
+
+    public String login(String name, String password){
+        User byNameAndPassword = userRepository.findByNameAndPassword(name, password);
+        if(byNameAndPassword != null){
+            return byNameAndPassword.getId().toString();
+        }
+        return "error";
     }
 
     /*@Transactional*/

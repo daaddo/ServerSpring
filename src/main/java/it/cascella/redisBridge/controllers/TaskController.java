@@ -14,6 +14,10 @@ public class TaskController {
     @Autowired
     private TaskService taskService;
 
+    @GetMapping("login/{name}/{password}")
+    public String login(@PathVariable String name, @PathVariable String password){
+        return taskService.login(name, password);
+    }
     @GetMapping
     public List<Task> getAllTasks(){
         return taskService.getAllTasks();
