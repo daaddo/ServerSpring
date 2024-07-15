@@ -23,7 +23,7 @@ jobs:
       run: mvn clean install
       env:
         SQLUSER: ${{ secrets.SQLUSER }}
-        CONNECTION: ${{ secrets.SQLPASSWRD }}
+        CONNECTION: ${{ secrets.CONNECTION }}
         SQLPASSWORD: ${{ secrets.SQLPASSWORD }}
   docker-build:
     needs: mvn-build
