@@ -45,6 +45,7 @@ public class TaskService {
     public String login(String name, String password){
         User byNameAndPassword = userRepository.findByNameAndPassword(name, password);
         if(byNameAndPassword != null){
+            System.out.println(byNameAndPassword.getId());
             return byNameAndPassword.getId().toString();
         }
         return "error";
