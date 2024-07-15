@@ -21,6 +21,9 @@ jobs:
 
     - name: Compile and test with Maven
       run: mvn clean install
+      env:
+        SQLUSER: ${{ secrets.SQLUSER }}
+        SQLPASSWRD: ${{ secrets.SQLPASSWRD }}
 
   docker-build:
     needs: mvn-build
