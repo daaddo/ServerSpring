@@ -40,7 +40,10 @@ jobs:
 
     - name: Compile and test with Maven
       run: mvn clean package
-      
+      env:
+        SQLUSER: ${{ secrets.SQLUSER }}
+        SQLPASSWORD: ${{ secrets.SQLPASSWORD }}
+        
     - name: Set up Docker Build
       uses: docker/setup-buildx-action@v1
     
