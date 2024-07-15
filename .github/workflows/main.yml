@@ -24,7 +24,7 @@ jobs:
       env:
         SQLUSER: ${{ secrets.SQLUSER }}
         SQLPASSWRD: ${{ secrets.SQLPASSWRD }}
-
+        CONNECTION: ${{ secrets.SQLPASSWRD }}
   docker-build:
     needs: mvn-build
     runs-on: ubuntu-latest
