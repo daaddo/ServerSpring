@@ -59,7 +59,7 @@ public class TaskService {
         user.setName(name);
         user.setPassword(password);
         userRepository.save(user);
-        return "Registered";
+        return user.getId().toString();
     }
 
     /*@Transactional*/
