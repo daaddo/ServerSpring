@@ -53,7 +53,7 @@ public class TaskService {
 
     public String register(String name, String password){
         User user = new User();
-        if (userRepository.findByName(name)){
+        if (userRepository.findByName(name) != null){
             return "error";
         }
         user.setName(name);
