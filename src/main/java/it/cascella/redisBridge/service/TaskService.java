@@ -27,24 +27,10 @@ public class TaskService {
         return taskRepository.findById(id).orElse(null);
     }
     public Task saveTask(Task task){
-        if(taskRepository.findById(task.getId()).isPresent()){
-            return updateTask(task.getId(), task);
-
-        }
         return taskRepository.save(task);
     }
     public void deleteTask(Long id){
-
         taskRepository.deleteById(id);
-    }
-    public Task updateTask(Long id, Task task){
-        Task existingTask = taskRepository.findById(id).orElse(null);
-        if(existingTask != null){
-            existingTask.setText(task.getText());
-            existingTask.setType(task.getType());
-            return taskRepository.save(existingTask);
-        }
-        return null;
     }
 
     public String login(String name, String password){
