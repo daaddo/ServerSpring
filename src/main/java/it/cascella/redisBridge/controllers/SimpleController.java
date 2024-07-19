@@ -14,7 +14,7 @@ public class SimpleController {
 
     @GetMapping("/ping")
     public String ping() {
-        return "pong!!!";
+        return "pong yang";
     }
     @GetMapping("/isEven/{number}")
     public boolean isEven(@PathVariable int number) {
