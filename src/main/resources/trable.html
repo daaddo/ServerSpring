@@ -1,0 +1,252 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha384-k6RqeWeci5ZR/Lv4MR0sA0FfDOM9z1d3gY+IY3B1mT4d8Vn4v24FdZ1W8amYp/a" crossorigin="anonymous">
+</head>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: radial-gradient(circle at bottom right, #0A3045, #250A51);
+        margin: 0;
+        padding: 0;
+    }
+
+    table {
+        border-collapse: collapse;
+        border: none !important;
+        /* Add this line */
+        min-width: 700px;
+        border: none;
+    }
+
+    table td {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border: none;
+
+    }
+
+    table th {
+        text-align: left;
+        font-size: 22px;
+        color: white;
+        border-bottom: 1px solid gray;
+        padding-bottom: 4px;
+        border-left: none;
+        border-right: none;
+
+    }
+
+    table td {
+        font-size: 16px;
+        color: white;
+        border-bottom: 1px solid gray;
+    }
+
+    table td:nth-child(2) {
+        font-size: 16px;
+        font-weight: bold;
+    }
+
+    table td:nth-child(2).not-available {
+        color: red;
+    }
+
+    table td:nth-child(2).available {
+        color: green;
+    }
+
+    table td:nth-child(2).maybe {
+        color: orange;
+    }
+
+    table td:nth-child(4) {
+        position: relative;
+    }
+
+    table td:nth-child(4)::after {
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    button:hover {
+        background-image: url(https://www.allfigureshop.com/wp-content/uploads/2024/10/Rectangle-3.png)!important;
+    }
+    td td:nth-child(5) {
+        opacity: 1;
+    }
+    td>button{
+        background-color: transparent!important;
+        margin: 0;
+        padding: 0;
+        background-image: url(https://www.allfigureshop.com/wp-content/uploads/2024/07/Go_button.png)!important;
+        width: 110px;
+        height: 30px!important;
+        background-size: cover;
+    }
+    td>button:hover{
+        background-image: url(https://www.allfigureshop.com/wp-content/uploads/2024/10/Rectangle-3.png)!important;
+    }
+    table td:nth-child(4) button {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        padding: 5px 10px;
+        background-color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 14px;
+        cursor: pointer;
+
+    }
+
+
+    .dcoupon {
+        width: 70%;
+        padding: 5px;
+        border: 1px solid gray;
+        border-radius: 5px;
+        border-style: dotted;
+        background-color: #0C336E;
+        color: #90ADD8;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .dcoupon i {
+        font-size: 16px;
+        color: #90ADD8;
+        cursor: pointer;
+    }
+
+    .dcoupon i:hover {
+        color: white;
+    }
+
+
+
+    .dcoupon p {
+        margin: 0;
+    }
+    .go_button{
+
+        background-repeat: no-repeat;
+        background-size: contain;
+        background-color: none;
+        margin: auto;
+        background-position: center;
+    }
+    .go_button_text{
+        padding-left:30px;
+
+        margin: 0;
+        height: 10px;
+        color: white;
+    }
+    .urltable-go-header{
+        width: 200px !important;
+    }
+    .container{
+        width: 1100px;
+        position: relative;
+        left: 300px;
+    }
+    .sub_container{
+        width: 100%;
+    }
+    .flex{
+        display: flex;
+        flex-direction: column;
+    }
+    .noProperties{
+        all: unset;
+    }
+</style>
+<div class="container">
+    <table class="sub_container">
+        <tbody>
+        <tr>
+            <th>Shop</th>
+            <th>Availability</th>
+            <th>Coupon</th>
+            <th>Price</th>
+            <th>Go!</th>
+        </tr>
+        <tr>
+            <td>
+                <div class="flex">
+                    <p class="noProperties">[SITE_NAME]</p>
+                    <a data-value="https://solarisjapan.com/" class="trustPilot"/>
+                </div>
+            </td>
+            <td  class="[AVAIABILITY_CLASS]">[AVAIABILITY]</td>
+            <td>
+                <div class="dcoupon">
+                    <p id="coupon1">[COUPON]</p>
+                    <i class="fa-regular fa-copy" onclick="copyCoupon('coupon1')" aria-hidden="true"></i>
+                </div>
+            </td>
+            <td>[PRICE]</td>
+            <td><button onclick="goToLink('[SITE_URL]')">Go</button></td>
+        </tr>
+
+        ...
+        </tbody>
+    </table>
+
+</div>
+<script>
+
+    const Siti = {
+        ROSSO: "5",
+        VERDE: "4",
+        BLU: "3"
+    };
+    document.addEventListener("DOMContentLoaded",function (){
+        console.log(document.body);
+
+
+
+        const nameElement = document.querySelectorAll(".trustPilot");
+        console.log(nameElement)
+        nameElement.forEach(element =>{
+            element.innerHTML = "TrustPilot"
+            const myUrl = new URL(element.getAttribute("data-value"));
+
+            element.href = "https://www.trustpilot.com/review/"+(myUrl.hostname).replace(/^www\./, '');
+
+            const fullStar = '<i class="fa-solid fa-star"></i>';
+            const halfStar = '<i class="fa-solid fa-star-half-stroke"></i>';
+            const emptyStar = '<i class="fa-regular fa-star"></i>';
+
+            // Calculate the number of full, half, and empty stars
+            const fullStars = Math.floor(Siti["ROSSO"]);
+            const hasHalfStar = fullStars % 1 !== 0;
+            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+
+
+            // Append full stars
+            for (let i = 0; i < fullStars; i++) {
+                element.innerHTML = element.innerHTML+fullStar;
+            }
+            // Append half star if needed
+            if (hasHalfStar) {
+                element.innerHTML = element.innerHTML+halfStar;
+            }
+
+            // Append empty stars
+            for (let i = 0; i < emptyStars; i++) {
+                element.innerHTML = element.innerHTML+emptyStar;
+            }
+        })
+
+    })
+</script>
